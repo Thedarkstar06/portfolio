@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATS Platform | Pranjali</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ats.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">PRANJALI</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="work.html" class="active">Work</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="page-header">
+    <h1>ATS Platform</h1>
+    <p>Interface Design for a Structured Recruitment Workflow</p>
+</section>
+
+<section class="case-section">
+    <h3>Overview</h3>
+    <p>
+        The ATS (Application Tracking System) is a structured recruitment platform 
+        designed to streamline candidate management, job postings, and client workflows.
+    </p>
+    <p>
+        This project focused on designing a clean and intuitive interface system 
+        that simplifies complex recruitment processes.
+    </p>
+</section>
+
+<section class="case-section">
+    <h3>The Problem</h3>
+    <p>
+        Recruitment platforms often suffer from cluttered dashboards, 
+        inconsistent navigation, and overwhelming data presentation.
+    </p>
+    <p>
+        The challenge was to design a layout that organizes information clearly 
+        while maintaining usability and visual consistency.
+    </p>
+</section>
+
+<section class="case-section">
+    <h3>The Solution</h3>
+    <ul>
+        <li>Structured sidebar navigation for clarity</li>
+        <li>Modular dashboard layout</li>
+        <li>Card-based job listing interface</li>
+        <li>Consistent spacing and typography system</li>
+        <li>Clear hierarchy for candidate data</li>
+    </ul>
+</section>
+
+<section class="slider-section">
+
+    <div class="slider">
+        <button class="prev">&#10094;</button>
+
+        <div class="slides">
+            <img src="assets/images/dashboard.jpeg" alt="ATS Dashboard">
+            <img src="assets/images/ss1.jpeg" alt="Job Listings">
+            <img src="assets/images/interview.jpeg" alt="Candidate Management">
+            <img src="assets/images/notes&docs.jpeg" alt="Client Section">
+        </div>
+
+        <button class="next">&#10095;</button>
+    </div>
+
+</section>
+<section class="case-section">
+    <h3>Design Decisions</h3>
+    <p>
+        The interface follows a clean grid structure with consistent spacing 
+        and neutral color tones to reduce cognitive overload.
+    </p>
+    <p>
+        Information is grouped logically to support fast scanning and decision-making 
+        within a recruitment workflow environment.
+    </p>
+</section>
+
+<section class="case-section">
+    <h3>What This Project Demonstrates</h3>
+    <ul>
+        <li>UI system thinking</li>
+        <li>Information hierarchy design</li>
+        <li>Dashboard layout structuring</li>
+        <li>Consistency in visual language</li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2026 Pranjali Dhikle</p>
+</footer>
+<script>
+let index = 0;
+const slides = document.querySelector(".slides");
+const totalSlides = document.querySelectorAll(".slides img").length;
+
+document.querySelector(".next").addEventListener("click", () => {
+    index = (index + 1) % totalSlides;
+    updateSlider();
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlider();
+});
+
+function updateSlider() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+</script>
+</body>
+</html>

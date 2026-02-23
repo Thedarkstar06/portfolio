@@ -79,31 +79,77 @@ nav a.active {
 
 /* HOME PREVIEW */
 
+
 .home-preview {
-    padding: 80px 100px;
+    padding: 100px;
 }
 
 .home-preview h2 {
     font-family: 'Playfair Display', serif;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
-.preview-grid {
-    display: flex;
+.preview-intro {
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 500px;
+}
+
+.featured-work {
+    margin-bottom: 40px;
+}
+
+.featured-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.featured-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.secondary-work {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
 
-.preview-card {
-    flex: 1;
-    padding: 70px;
-    background-color: #f7f9fc;
-    text-align: center;
-    transition: 0.3s ease;
+.secondary-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
-.preview-card:hover {
-    transform: translateY(-5px);
+.secondary-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
 }
+
+.featured-overlay,
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    color: #fff;
+}
+
+.featured-card:hover img,
+.secondary-card:hover img {
+    transform: scale(1.04);
+}
+
+
+
 
 /* PAGE HEADER */
 
@@ -123,31 +169,55 @@ nav a.active {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    padding: 0 100px 100px;
 }
 
 .project-card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
+    display: block;              /* important for <a> */
     background-color: #ffffff;
     border: 1px solid #eeeeee;
-    transition: transform 0.3s ease;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;       /* removes underline */
+    color: inherit;              /* keeps text color normal */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
 .project-image {
-    height: 220px;
-    background-color: #e9edf3;
+    height: 260px;               /* slightly better proportion */
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* prevents stretching */
+    display: block;
 }
 
 .project-content {
-    padding: 30px;
+    padding: 20px;
 }
 
+.project-content h3 {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.project-content p {
+    font-size: 14px;
+    color: #666;
+}
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
 
 /* ABOUT & CONTACT */
 
@@ -189,31 +259,7 @@ footer {
     color: #777;
 }
 
-.project-card {
-    background-color: #ffffff;
-    border: 1px solid #eeeeee;
-    overflow: hidden;
-}
-
-.project-image {
-    height: 220px;
-    background-color: #e9edf3;
-}
-
-.project-content {
-    padding: 30px;
-}
-
-.project-content h3 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 10px;
-}
-
-.project-content p {
-    color: #666;
-    font-size: 14px;
-}
-
+/* vision document */
 .case-section {
     padding: 0 100px 40px;
     max-width: 900px;
@@ -239,11 +285,20 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    align-items: stretch; /* ensures equal row height */
 }
 
 .case-images img {
     width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 20px;
     border: 1px solid #eeeeee;
+    transition: transform 0.3s ease;
+}
+.case-images img:hover {
+    transform: scale(1.02);
 }
 .image-placeholder {
     flex: 1;
@@ -259,8 +314,97 @@ section {
     margin-bottom: 40px;
 }
 
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+/* CAMPAIGN STYLES */
+.project-hero {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .project-hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .project-hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        .section {
+            padding: 70px 10%;
+        }
+
+        .section h2 {
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .section p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .structure-list {
+            margin-top: 20px;
+        }
+
+        .structure-list li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.03);
+        }
 
 
+        .image-card {
+    background: white;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.image-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+        .reflection-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        @media (max-width: 900px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
 
 
